@@ -26,8 +26,26 @@ Template này đã được chỉnh lại để nhìn giống `Template_Do_An_Mo
 3. Cập nhật `bibliography/main.bib`
 4. Build bằng `latexmk -pdf main-report.tex`
 
+## Thiết lập trên Windows
+
+1. Cài [Strawberry Perl](https://strawberryperl.com/)
+2. Cài [MiKTeX](https://miktex.org/download)
+3. Mở MiKTeX Console và cài package `latexmk`
+4. Kiểm tra `PATH` có các binary của Strawberry Perl và MiKTeX
+5. Cài VS Code extension `LaTeX`
+6. Cài VS Code extension `LaTeX Workshop`
+
+Sau khi cài xong, có thể build trong terminal:
+
+```powershell
+latexmk -pdf main-report.tex
+```
+
+Hoặc mở repo bằng VS Code rồi dùng `LaTeX Workshop` để build/watch PDF trực tiếp.
+
 ## Ghi chú
 
 - Template hiện tại ưu tiên `pdflatex + biber` để dễ chia sẻ và để giữ bộ gõ tiếng Việt ổn định.
 - `latexmk -pdf main-report.tex` là lệnh build nên dùng mặc định vì nó tự chạy đủ các vòng compile cần thiết.
-- Trong môi trường hiện tại, binary LaTeX không có sẵn trong `PATH`, nên chưa thể compile để verify trực tiếp.
+- Trên Windows, `latexmk` cần Perl để chạy, nên nếu thiếu Strawberry Perl thì terminal sẽ báo không nhận hoặc chạy lỗi.
+- Nếu VS Code chưa detect được `latexmk`, hãy đóng và mở lại VS Code sau khi cài Perl và MiKTeX.
