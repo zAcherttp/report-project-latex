@@ -7,7 +7,7 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T5]{fontenc}
-\RequirePackage[vietnamese,english]{babel}
+\RequirePackage[english,vietnamese]{babel}
 \renewcommand{\rmdefault}{ptm}
 \RequirePackage{newtxmath}
 \RequirePackage{geometry}
@@ -28,6 +28,7 @@
 \RequirePackage{pdflscape}
 \RequirePackage{chngcntr}
 \RequirePackage{titlesec}
+\RequirePackage{tocloft}
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 \RequirePackage{fancyhdr}
@@ -99,9 +100,26 @@
   singlelinecheck=false
 }
 
-\renewcommand{\contentsname}{MỤC LỤC}
-\renewcommand{\listfigurename}{DANH SÁCH HÌNH}
-\renewcommand{\listtablename}{DANH SÁCH BẢNG}
+\addto\captionsvietnamese{%
+  \renewcommand{\contentsname}{MỤC LỤC}%
+  \renewcommand{\listfigurename}{DANH SÁCH HÌNH}%
+  \renewcommand{\listtablename}{DANH SÁCH BẢNG}%
+}
+\addto\captionsenglish{%
+  \renewcommand{\contentsname}{MỤC LỤC}%
+  \renewcommand{\listfigurename}{DANH SÁCH HÌNH}%
+  \renewcommand{\listtablename}{DANH SÁCH BẢNG}%
+}
+\renewcommand{\cftdotsep}{1.5}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapaftersnum}{.}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\setlength{\cftchapnumwidth}{1.4em}
+\setlength{\cftsecnumwidth}{1.4em}
+\setlength{\cftsubsecnumwidth}{2.7em}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{2}
@@ -218,23 +236,24 @@
       }
     \end{center}
 
-    \vspace{2.8cm}
+    \vspace{2.4cm}
     \begin{minipage}{0.88\textwidth}
       \normalsize
       \noindent\textbf{Môn học:} \@coursecode{} -- \@coursename\par
       \vspace{0.35cm}
       \noindent\textbf{Giảng viên hướng dẫn:} \@supervisor\par
       \vspace{0.35cm}
-      \noindent\textbf{Thực hiện bởi nhóm \@groupnumber, bao gồm:}\par
+      \noindent\textbf{Thực hiện bởi nhóm:}\par
       \vspace{0.15cm}
       \hspace*{1.2em}%
       \begin{tabularx}{0.92\textwidth}{@{}Y l Y@{}}
         \@reportmembers
-      \end{tabularx}
+      \end{tabularx}\par
       \vspace{0.35cm}
       \noindent\textbf{Thời gian thực hiện:} \@projectduration\par
     \end{minipage}
 
+    \vspace{0.15cm}
     \vfill
     \begin{center}
       \@reportplace{}, \@reportyear
